@@ -7,13 +7,18 @@ const SAVE_SECTION: String = "data"
 static var instance: SaveManager
 var _config: ConfigFile = ConfigFile.new()
 
+enum DNAType
+{
+	Overall,
+	Rabbit,
+	Fox,
+	Wolf,
+	Bear,
+	Human,
+}
+
 enum ResourceType
 {
-	RabbitDNA,
-	FoxDNA,
-	WolfDNA,
-	BearDNA,
-	HumanDNA,
 	Gold,
 	Knowledge,
 	Bribe,
@@ -21,6 +26,17 @@ enum ResourceType
 	Permit,
 	Inlfuence,
 }
+
+func add_dna(DNA : DNAType, num : int) -> void:
+	var res_name = str(DNA)
+	set_value(res_name, num + get_value(res_name))
+	
+	# each time add overall DNA
+	var overall_name = str(DNAType.Overall)
+	set_value(overall_name, get_value(overall_name, 0) + max(num, 0))
+	
+func get_dna(DNA : DNAType) -> int:
+	return get_value(str(DNA), 0)
 
 func set_resource(resource : ResourceType, num : int) -> void:
 	set_value(str(resource), num)
