@@ -28,6 +28,7 @@ enum ResourceType
 }
 
 func add_dna(DNA : DNAType, num : int) -> void:
+	assert(DNA != DNAType.Overall)
 	var res_name = str(DNA)
 	set_value(res_name, num + get_value(res_name))
 	
