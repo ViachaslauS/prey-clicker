@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://v8m0v6qv7uls" path="res://res/trees/trees.png" id="4_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dov2wo74rix7x" path="res://res/objects/Hare/Hare_Idle_with_shadow.png" id="5_rt2n2"]
 [ext_resource type="Texture2D" uid="uid://51guxnbglvgr" path="res://res/objects/Hare/Hare_Run_with_shadow.png" id="6_c16ls"]
-[ext_resource type="Script" uid="uid://duu3f36q0guqo" path="res://scripts/hare_popup_rect.gd" id="7_18nlu"]
+[ext_resource type="Script" uid="uid://dqs7nx1lirtvv" path="res://scripts/hare_popup_rect.gd" id="7_18nlu"]
 [ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/HarePopup.tscn" id="8_c1pb6"]
-[ext_resource type="Script" uid="uid://cuak70dh55h48" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
+[ext_resource type="Script" uid="uid://21l1eg6db52a" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
 [ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="10_6wevv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
@@ -552,7 +552,6 @@ font_size = 27
 font_color = Color(0, 0, 0, 1)
 
 [node name="MainScene" type="Node2D" unique_id=1278402587]
-scale = Vector2(2, 2)
 script = ExtResource("1_pw63i")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1715375936]
@@ -611,8 +610,38 @@ offset_bottom = 36.5
 text = "Total DNA: "
 label_settings = SubResource("LabelSettings_e1cbu")
 
+[node name="Fox" type="AnimatedSprite2D" parent="." unique_id=69845264]
+position = Vector2(382, 107.410286)
+sprite_frames = SubResource("SpriteFrames_kkokr")
+animation = &"idle-right"
+autoplay = "idle-right"
+frame_progress = 0.35220864
+
+[node name="Button" type="Button" parent="Fox" unique_id=1423730580]
+custom_minimum_size = Vector2(32, 32)
+offset_left = -16.0
+offset_top = -15.0
+offset_right = 16.0
+offset_bottom = 17.0
+script = ExtResource("7_18nlu")
+
+[node name="HarePopup" parent="Fox/Button" unique_id=1942270965 instance=ExtResource("8_c1pb6")]
+layout_mode = 1
+offset_left = 11.0
+offset_top = -14.410286
+offset_right = 213.0
+offset_bottom = 154.67944
+
+[node name="HareHandler" type="Node" parent="Fox" unique_id=1325440141]
+script = ExtResource("9_c1pb6")
+data_path = "res://res/data/animals/fox_data.tres"
+
 [connection signal="button_down" from="Hare/Button" to="Hare/Button" method="_on_button_down"]
 [connection signal="button_up" from="Hare/Button" to="Hare/Button" method="_on_button_up"]
 [connection signal="mouse_entered" from="Hare/Button" to="Hare/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Hare/Button" to="Hare/Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="ResetProgressButton" to="." method="_on_reset_progress_button_pressed"]
+[connection signal="button_down" from="Fox/Button" to="Fox/Button" method="_on_button_down"]
+[connection signal="button_up" from="Fox/Button" to="Fox/Button" method="_on_button_up"]
+[connection signal="mouse_entered" from="Fox/Button" to="Fox/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Fox/Button" to="Fox/Button" method="_on_mouse_exited"]
