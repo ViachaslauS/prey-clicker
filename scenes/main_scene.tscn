@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/HarePopup.tscn" id="8_c1pb6"]
 [ext_resource type="Script" uid="uid://21l1eg6db52a" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
 [ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="10_6wevv"]
+[ext_resource type="Script" uid="uid://cbemn0cwv40br" path="res://scripts/fox_handler.gd" id="11_qhgtx"]
+[ext_resource type="SpriteFrames" path="res://res/data/animals/fox_sprite_frames.tres" id="12_r2u6p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
 texture = ExtResource("1_w2twt")
@@ -612,10 +614,9 @@ label_settings = SubResource("LabelSettings_e1cbu")
 
 [node name="Fox" type="AnimatedSprite2D" parent="." unique_id=69845264]
 position = Vector2(382, 107.410286)
-sprite_frames = SubResource("SpriteFrames_kkokr")
+sprite_frames = ExtResource("12_r2u6p")
 animation = &"idle-right"
 autoplay = "idle-right"
-frame_progress = 0.35220864
 
 [node name="Button" type="Button" parent="Fox" unique_id=1423730580]
 custom_minimum_size = Vector2(32, 32)
@@ -624,17 +625,19 @@ offset_top = -15.0
 offset_right = 16.0
 offset_bottom = 17.0
 script = ExtResource("7_18nlu")
+handler_path = NodePath("../FoxHandler")
+popup_path = NodePath("FoxPopup")
 
-[node name="HarePopup" parent="Fox/Button" unique_id=1942270965 instance=ExtResource("8_c1pb6")]
+[node name="FoxPopup" parent="Fox/Button" unique_id=1942270965 instance=ExtResource("8_c1pb6")]
 layout_mode = 1
 offset_left = 11.0
-offset_top = -14.410286
+offset_top = -20.410286
 offset_right = 213.0
-offset_bottom = 154.67944
+offset_bottom = 148.67944
+handler_path = NodePath("../../FoxHandler")
 
-[node name="HareHandler" type="Node" parent="Fox" unique_id=1325440141]
-script = ExtResource("9_c1pb6")
-data_path = "res://res/data/animals/fox_data.tres"
+[node name="FoxHandler" type="Node" parent="Fox" unique_id=1325440141]
+script = ExtResource("11_qhgtx")
 
 [connection signal="button_down" from="Hare/Button" to="Hare/Button" method="_on_button_down"]
 [connection signal="button_up" from="Hare/Button" to="Hare/Button" method="_on_button_up"]
