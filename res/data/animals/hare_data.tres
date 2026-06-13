@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AnimalData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/animal_data.gd" id="1_q3x1k"]
+
+[resource]
+script = ExtResource("1_q3x1k")
+display_name = "Hare"
+dna_type = 1
+save_key_prefix = "hare"
+passive_gain_time = 0.5
+passive_gain_per_level = 1
+passive_gain_cost_base = 100
+passive_gain_cost_step = 50
+mimic_cost_base = 10
+mimic_cost_step = 50
+click_gain_per_level = 1
+click_upgrade_cost_step = 5
+click_upgrade_max_level = 5
+default_passive_level = 1
+default_mimic_count = 0
+default_click_level = 1
