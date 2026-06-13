@@ -27,7 +27,7 @@ enum ResourceType
 	Inlfuence,
 }
 
-func add_dna(DNA : DNAType, num : int) -> void:
+static func add_dna(DNA : DNAType, num : int) -> void:
 	assert(DNA != DNAType.Overall)
 	var res_name = str(DNA)
 	set_value(res_name, num + get_value(res_name))
@@ -36,16 +36,16 @@ func add_dna(DNA : DNAType, num : int) -> void:
 	var overall_name = str(DNAType.Overall)
 	set_value(overall_name, get_value(overall_name, 0) + max(num, 0))
 	
-func get_dna(DNA : DNAType) -> int:
+static func get_dna(DNA : DNAType) -> int:
 	return get_value(str(DNA), 0)
 
-func set_resource(resource : ResourceType, num : int) -> void:
+static func set_resource(resource : ResourceType, num : int) -> void:
 	set_value(str(resource), num)
 
-func get_resource(resource : ResourceType, num : int) -> int:
+static func get_resource(resource : ResourceType, num : int) -> int:
 	return get_value(str(resource), num)
 
-func add_resource(resource : ResourceType, num : int) -> void:
+static func add_resource(resource : ResourceType, num : int) -> void:
 	var res_name = str(resource)
 	set_value(res_name, num + get_value(res_name))
 
