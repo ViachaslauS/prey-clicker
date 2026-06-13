@@ -7,6 +7,31 @@ const SAVE_SECTION: String = "data"
 static var instance: SaveManager
 var _config: ConfigFile = ConfigFile.new()
 
+enum ResourceType
+{
+	RabbitDNA,
+	FoxDNA,
+	WolfDNA,
+	BearDNA,
+	HumanDNA,
+	Gold,
+	Knowledge,
+	Bribe,
+	LegalForm1,
+	Permit,
+	Inlfuence,
+}
+
+func set_resource(resource : ResourceType, num : int) -> void:
+	set_value(str(resource), num)
+
+func get_resource(resource : ResourceType, num : int) -> int:
+	return get_value(str(resource), num)
+
+func add_resource(resource : ResourceType, num : int) -> void:
+	var res_name = str(resource)
+	set_value(res_name, num + get_value(res_name))
+
 func _enter_tree() -> void:
 	instance = self
 
