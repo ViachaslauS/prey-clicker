@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://duu3f36q0guqo" path="res://scripts/hare_popup_rect.gd" id="7_18nlu"]
 [ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/HarePopup.tscn" id="8_c1pb6"]
 [ext_resource type="Script" uid="uid://cuak70dh55h48" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
+[ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="10_6wevv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
 texture = ExtResource("1_w2twt")
@@ -545,6 +546,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_e1cbu"]
+font = ExtResource("10_6wevv")
+font_size = 27
+font_color = Color(0, 0, 0, 1)
+
 [node name="MainScene" type="Node2D" unique_id=1278402587]
 scale = Vector2(2, 2)
 script = ExtResource("1_pw63i")
@@ -573,7 +579,6 @@ offset_bottom = 36.138046
 script = ExtResource("7_18nlu")
 
 [node name="HarePopup" parent="Hare/Button" unique_id=1414298144 instance=ExtResource("8_c1pb6")]
-visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -582,8 +587,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 101.0
 offset_top = 50.191723
-offset_right = 271.0
-offset_bottom = 190.19173
+offset_right = 298.5
+offset_bottom = 216.35046
 grow_horizontal = 1
 grow_vertical = 1
 mouse_filter = 1
@@ -597,6 +602,14 @@ offset_top = 5.019165
 offset_right = 665.0
 offset_bottom = 36.019165
 text = "RESET PROGRESS (DEV ONLY)"
+
+[node name="DNA_Amount" type="Label" parent="." unique_id=1115432066]
+offset_left = 245.5
+offset_top = 10.0
+offset_right = 357.5
+offset_bottom = 36.5
+text = "Total DNA: "
+label_settings = SubResource("LabelSettings_e1cbu")
 
 [connection signal="button_down" from="Hare/Button" to="Hare/Button" method="_on_button_down"]
 [connection signal="button_up" from="Hare/Button" to="Hare/Button" method="_on_button_up"]
