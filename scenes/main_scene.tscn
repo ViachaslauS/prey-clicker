@@ -7,13 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dov2wo74rix7x" path="res://res/objects/Hare/Hare_Idle_with_shadow.png" id="5_rt2n2"]
 [ext_resource type="Texture2D" uid="uid://51guxnbglvgr" path="res://res/objects/Hare/Hare_Run_with_shadow.png" id="6_c16ls"]
 [ext_resource type="Script" uid="uid://dqs7nx1lirtvv" path="res://scripts/hare_popup_rect.gd" id="7_18nlu"]
-[ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/HarePopup.tscn" id="8_c1pb6"]
+[ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/popups/HarePopup.tscn" id="8_c1pb6"]
 [ext_resource type="Script" uid="uid://21l1eg6db52a" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
 [ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="10_6wevv"]
 [ext_resource type="Resource" path="res://res/data/animals/hare_data.tres" id="10_r6p65"]
 [ext_resource type="Script" uid="uid://cbemn0cwv40br" path="res://scripts/fox_handler.gd" id="11_qhgtx"]
 [ext_resource type="SpriteFrames" uid="uid://ckgt2tgpe1c1k" path="res://res/data/animals/fox_sprite_frames.tres" id="12_r2u6p"]
-[ext_resource type="Resource" path="res://res/data/animals/fox_data.tres" id="13_4w45t"]
+[ext_resource type="Resource" uid="uid://c3pcr0qdne7ic" path="res://res/data/animals/fox_data.tres" id="13_4w45t"]
+[ext_resource type="PackedScene" uid="uid://bw64a78pb5ru5" path="res://scenes/popups/FoxPopup.tscn" id="13_si52b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
 texture = ExtResource("1_w2twt")
@@ -620,7 +621,7 @@ position = Vector2(382, 107.410286)
 sprite_frames = ExtResource("12_r2u6p")
 animation = &"idle-right"
 autoplay = "idle-right"
-frame_progress = 0.26008433
+frame_progress = 0.19755915
 
 [node name="Button" type="Button" parent="Fox" unique_id=1423730580]
 self_modulate = Color(1, 1, 1, 0)
@@ -633,12 +634,12 @@ script = ExtResource("7_18nlu")
 handler_path = NodePath("../FoxHandler")
 popup_path = NodePath("FoxPopup")
 
-[node name="FoxPopup" parent="Fox/Button" unique_id=1942270965 instance=ExtResource("8_c1pb6")]
+[node name="FoxPopup" parent="Fox/Button" unique_id=259555413 instance=ExtResource("13_si52b")]
 layout_mode = 1
-offset_left = 37.5
-offset_top = -21.794857
-offset_right = 239.5
-offset_bottom = 147.29488
+offset_left = 86.0
+offset_top = 11.0
+offset_right = -45.0
+offset_bottom = -80.589714
 mouse_filter = 1
 handler_path = NodePath("../../FoxHandler")
 

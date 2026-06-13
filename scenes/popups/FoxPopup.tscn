@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bw64a78pb5ru5"]
+
+[ext_resource type="Texture2D" uid="uid://cd8o1b7dclxuf" path="res://res/ui/Inventory.png" id="1_dbhn2"]
+[ext_resource type="Script" uid="uid://dulij0dxpwtv0" path="res://scenes/popups/fox_popup.gd" id="1_tpcex"]
+[ext_resource type="LabelSettings" uid="uid://bokpke0pl1xcp" path="res://res/text_base_settings.tres" id="2_au32t"]
+[ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="3_tpcex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w840l"]
+font = ExtResource("3_tpcex")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmvyg"]
+font = ExtResource("3_tpcex")
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hidyh"]
+line_spacing = 2.0
+font = ExtResource("3_tpcex")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="FoxPopup" type="Control" unique_id=259555413]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1720.0
+offset_bottom = -730.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpcex")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=720068336]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 170.0
+offset_bottom = 201.0
+texture = ExtResource("1_dbhn2")
+draw_center = false
+region_rect = Rect2(8, 0, 97, 101)
+patch_margin_left = 85
+patch_margin_top = 90
+patch_margin_right = 84
+patch_margin_bottom = 82
+
+[node name="Name" type="Label" parent="." unique_id=1201703677]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 55.0
+offset_bottom = 15.833336
+text = "FOX"
+label_settings = ExtResource("2_au32t")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1566491743]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 18.0
+offset_right = 157.0
+offset_bottom = 140.0
+columns = 2
+
+[node name="HareDNA" type="Label" parent="GridContainer" unique_id=816662862]
+layout_mode = 2
+text = "DNA:"
+label_settings = SubResource("LabelSettings_w840l")
+vertical_alignment = 2
+
+[node name="HareDNA_Count" type="Label" parent="GridContainer" unique_id=749830812]
+layout_mode = 2
+text = "0123"
+label_settings = SubResource("LabelSettings_mmvyg")
+vertical_alignment = 2
+
+[node name="DnaPerClickLevel" type="Label" parent="GridContainer" unique_id=292562267]
+layout_mode = 2
+text = "Increase DNA 
+per click"
+label_settings = SubResource("LabelSettings_hidyh")
+
+[node name="DnaPerClickButton" type="Button" parent="GridContainer" unique_id=1132871021]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="IncreaseMimicCountLabel" type="Label" parent="GridContainer" unique_id=1896179016]
+layout_mode = 2
+text = "Increase mimic
+power"
+label_settings = SubResource("LabelSettings_hidyh")
+
+[node name="HareMimicCountButton" type="Button" parent="GridContainer" unique_id=773444429]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="IncreaseMimicPowerLabel" type="Label" parent="GridContainer" unique_id=392557027]
+layout_mode = 2
+text = "Increase mimic
+power (%d)"
+label_settings = SubResource("LabelSettings_hidyh")
+vertical_alignment = 3
+
+[node name="IncreaseMimicPowerButton" type="Button" parent="GridContainer" unique_id=2123357300]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[connection signal="pressed" from="GridContainer/DnaPerClickButton" to="." method="_on_dna_per_click_button_pressed"]
+[connection signal="pressed" from="GridContainer/HareMimicCountButton" to="." method="_on_mimic_count_upgrade_button_pressed"]
+[connection signal="pressed" from="GridContainer/IncreaseMimicPowerButton" to="." method="_on_increase_mimic_power_button_pressed"]

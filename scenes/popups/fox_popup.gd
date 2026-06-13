@@ -1,7 +1,7 @@
 extends Control
-class_name AnimalPopup
+class_name FoxPopup
 
-@export var handler_path: NodePath = NodePath("../../HareHandler")
+@export var handler_path: NodePath = NodePath("res://scripts/fox_handler.gd")
 
 @onready var _upgrade_passive_gain_button: Button = $GridContainer/IncreaseMimicPowerButton
 @onready var _upgrade_passive_gain_label: Label = $GridContainer/IncreaseMimicPowerLabel
