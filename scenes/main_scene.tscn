@@ -1,11 +1,14 @@
 [gd_scene format=4 uid="uid://c25gnrctd17qf"]
 
-[ext_resource type="Script" uid="uid://dxyjgohsg2c11" path="res://scenes/main_scene.gd" id="1_pw63i"]
+[ext_resource type="Script" uid="uid://dxyjgohsg2c11" path="res://scripts/main_scene.gd" id="1_pw63i"]
 [ext_resource type="Texture2D" uid="uid://mcuckhjhr3h6" path="res://res/tilesets/grass tileset/grass_tileset.png" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://n5w5f34vkciu" path="res://res/objects/objects_terrain.png" id="3_7ykc4"]
 [ext_resource type="Texture2D" uid="uid://v8m0v6qv7uls" path="res://res/trees/trees.png" id="4_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dov2wo74rix7x" path="res://res/objects/Hare/Hare_Idle_with_shadow.png" id="5_rt2n2"]
 [ext_resource type="Texture2D" uid="uid://51guxnbglvgr" path="res://res/objects/Hare/Hare_Run_with_shadow.png" id="6_c16ls"]
+[ext_resource type="Script" uid="uid://duu3f36q0guqo" path="res://scripts/hare_popup_rect.gd" id="7_18nlu"]
+[ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/HarePopup.tscn" id="8_c1pb6"]
+[ext_resource type="Script" uid="uid://cuak70dh55h48" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
 texture = ExtResource("1_w2twt")
@@ -558,4 +561,45 @@ tile_set = SubResource("TileSet_c16ls")
 position = Vector2(121, 107.410286)
 sprite_frames = SubResource("SpriteFrames_kkokr")
 animation = &"idle-right"
+autoplay = "idle-right"
 frame_progress = 0.35220864
+
+[node name="Button" type="Button" parent="Hare" unique_id=93112837]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -58.0
+offset_top = -68.26075
+offset_right = 104.0
+offset_bottom = 36.138046
+script = ExtResource("7_18nlu")
+
+[node name="HarePopup" parent="Hare/Button" unique_id=1414298144 instance=ExtResource("8_c1pb6")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 101.0
+offset_top = 50.191723
+offset_right = 271.0
+offset_bottom = 190.19173
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 1
+
+[node name="HareHandler" type="Node" parent="Hare" unique_id=1587163791]
+script = ExtResource("9_c1pb6")
+
+[node name="ResetProgressButton" type="Button" parent="." unique_id=1675740570]
+offset_left = 433.0
+offset_top = 5.019165
+offset_right = 665.0
+offset_bottom = 36.019165
+text = "RESET PROGRESS (DEV ONLY)"
+
+[connection signal="button_down" from="Hare/Button" to="Hare/Button" method="_on_button_down"]
+[connection signal="button_up" from="Hare/Button" to="Hare/Button" method="_on_button_up"]
+[connection signal="mouse_entered" from="Hare/Button" to="Hare/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Hare/Button" to="Hare/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="ResetProgressButton" to="." method="_on_reset_progress_button_pressed"]

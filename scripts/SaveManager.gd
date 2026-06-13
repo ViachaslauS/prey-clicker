@@ -10,7 +10,7 @@ var _config: ConfigFile = ConfigFile.new()
 enum DNAType
 {
 	Overall,
-	Rabbit,
+	Hare,
 	Fox,
 	Wolf,
 	Bear,
@@ -29,7 +29,7 @@ enum ResourceType
 
 static func add_dna(DNA : DNAType, num : int) -> void:
 	assert(DNA != DNAType.Overall)
-	var res_name = str(DNA)
+	var res_name : String = str(DNA)
 	set_value(res_name, num + get_value(res_name))
 	
 	# each time add overall DNA
@@ -46,7 +46,7 @@ static func get_resource(resource : ResourceType, num : int) -> int:
 	return get_value(str(resource), num)
 
 static func add_resource(resource : ResourceType, num : int) -> void:
-	var res_name = str(resource)
+	var res_name : String = str(resource)
 	set_value(res_name, num + get_value(res_name))
 
 func _enter_tree() -> void:
@@ -72,13 +72,17 @@ func _load() -> void:
 func _save() -> void:
 	_config.save(SAVE_FILE_PATH)
 
-static func set_value(key: String, value: Variant) -> void:
+static func set_value(key: String, value: int) -> void:
 	if instance:
 		instance._config.set_value(SAVE_SECTION, key, value)
 	else:
 		push_warning("SaveManager not initialized.")
 
-static func get_value(key: String, default_value: Variant = null) -> Variant:
+static func get_value(key: String, default_value: int = 0) -> Variant:
 	if instance and instance._config.has_section_key(SAVE_SECTION, key):
 		return instance._config.get_value(SAVE_SECTION, key, default_value)
 	return default_value
+	
+static func reset():
+	if instance:
+		instance._config.clear()

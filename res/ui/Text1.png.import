@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://bhnqu0xotfuc8"
+path="res://.godot/imported/Text1.png-ea51e2ece3593f4580df22b582f5e24b.fontdata"
+
+[deps]
+
+source_file="res://res/ui/Text1.png"
+dest_files=["res://.godot/imported/Text1.png-ea51e2ece3593f4580df22b582f5e24b.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("65-90", "0-3", "49-57", "48", "46", "44", "58", "63", "33", "40-41", "43", "45", "61")
+kerning_pairs=PackedStringArray()
+columns=10
+rows=5
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=false
+scaling_mode=2

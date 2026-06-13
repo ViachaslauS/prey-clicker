@@ -1,5 +1,6 @@
 extends Node
 
+
 const per_level_on_click_add_amount = 1
 
 # Called when the node enters the scene tree for the first time.

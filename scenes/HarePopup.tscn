@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dmak14jlsm8wa"]
+
+[ext_resource type="Texture2D" uid="uid://cd8o1b7dclxuf" path="res://res/ui/Inventory.png" id="1_1jym6"]
+[ext_resource type="Script" uid="uid://30ktoxaj41i0" path="res://scripts/hare_popup.gd" id="1_om726"]
+[ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="2_2fp7s"]
+[ext_resource type="LabelSettings" uid="uid://bokpke0pl1xcp" path="res://res/text_base_settings.tres" id="2_ajjtt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_om726"]
+font = ExtResource("2_2fp7s")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o3hy1"]
+font = ExtResource("2_2fp7s")
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppf0g"]
+line_spacing = 2.0
+font = ExtResource("2_2fp7s")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="HarePopup" type="Control" unique_id=1414298144]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -760.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_om726")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1009722810]
+scale = Vector2(1.7, 1.35)
+texture = ExtResource("1_1jym6")
+centered = false
+region_enabled = true
+region_rect = Rect2(5.7939835, -0.45357513, 100.753395, 103.788635)
+
+[node name="Hare_Name" type="Label" parent="." unique_id=1693580056]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 57.0
+offset_bottom = 17.833336
+text = "HARE"
+label_settings = ExtResource("2_ajjtt")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=995993744]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 22.0
+offset_right = 161.0
+offset_bottom = 122.0
+columns = 2
+
+[node name="HareDNA" type="Label" parent="GridContainer" unique_id=2027112352]
+layout_mode = 2
+text = "DNA:"
+label_settings = SubResource("LabelSettings_om726")
+vertical_alignment = 2
+
+[node name="HareDNA_Count" type="Label" parent="GridContainer" unique_id=1023919108]
+layout_mode = 2
+text = "0123"
+label_settings = SubResource("LabelSettings_o3hy1")
+vertical_alignment = 2
+
+[node name="IncreaseMimicCountLabel" type="Label" parent="GridContainer" unique_id=246483072]
+layout_mode = 2
+text = "Increase mimic
+power"
+label_settings = SubResource("LabelSettings_ppf0g")
+
+[node name="HareMimicCountButton" type="Button" parent="GridContainer" unique_id=434388803]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2fp7s")
+text = "156"
+
+[node name="IncreaseMimicPowerLabel" type="Label" parent="GridContainer" unique_id=1752785782]
+layout_mode = 2
+text = "Increase mimic
+power (%d)"
+label_settings = SubResource("LabelSettings_ppf0g")
+vertical_alignment = 3
+
+[node name="IncreaseMimicPowerButton" type="Button" parent="GridContainer" unique_id=448636996]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2fp7s")
+text = "156"
+
+[connection signal="pressed" from="GridContainer/HareMimicCountButton" to="." method="_on_hare_upgrade_button_pressed"]
+[connection signal="pressed" from="GridContainer/IncreaseMimicPowerButton" to="." method="_on_increase_mimic_power_button_pressed"]
