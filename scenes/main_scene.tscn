@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dmak14jlsm8wa" path="res://scenes/HarePopup.tscn" id="8_c1pb6"]
 [ext_resource type="Script" uid="uid://21l1eg6db52a" path="res://scripts/hare_handler.gd" id="9_c1pb6"]
 [ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="10_6wevv"]
+[ext_resource type="Resource" path="res://res/data/animals/hare_data.tres" id="10_r6p65"]
 [ext_resource type="Script" uid="uid://cbemn0cwv40br" path="res://scripts/fox_handler.gd" id="11_qhgtx"]
-[ext_resource type="SpriteFrames" path="res://res/data/animals/fox_sprite_frames.tres" id="12_r2u6p"]
+[ext_resource type="SpriteFrames" uid="uid://ckgt2tgpe1c1k" path="res://res/data/animals/fox_sprite_frames.tres" id="12_r2u6p"]
+[ext_resource type="Resource" path="res://res/data/animals/fox_data.tres" id="13_4w45t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
 texture = ExtResource("1_w2twt")
@@ -596,12 +598,13 @@ mouse_filter = 1
 
 [node name="HareHandler" type="Node" parent="Hare" unique_id=1587163791]
 script = ExtResource("9_c1pb6")
+data = ExtResource("10_r6p65")
 
 [node name="ResetProgressButton" type="Button" parent="." unique_id=1675740570]
-offset_left = 433.0
-offset_top = 5.019165
-offset_right = 665.0
-offset_bottom = 36.019165
+offset_left = 716.0
+offset_top = 11.0
+offset_right = 948.0
+offset_bottom = 42.0
 text = "RESET PROGRESS (DEV ONLY)"
 
 [node name="DNA_Amount" type="Label" parent="." unique_id=1115432066]
@@ -617,27 +620,31 @@ position = Vector2(382, 107.410286)
 sprite_frames = ExtResource("12_r2u6p")
 animation = &"idle-right"
 autoplay = "idle-right"
+frame_progress = 0.26008433
 
 [node name="Button" type="Button" parent="Fox" unique_id=1423730580]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(32, 32)
-offset_left = -16.0
-offset_top = -15.0
-offset_right = 16.0
-offset_bottom = 17.0
+offset_left = -59.0
+offset_top = -31.410286
+offset_right = 72.0
+offset_bottom = 60.17943
 script = ExtResource("7_18nlu")
 handler_path = NodePath("../FoxHandler")
 popup_path = NodePath("FoxPopup")
 
 [node name="FoxPopup" parent="Fox/Button" unique_id=1942270965 instance=ExtResource("8_c1pb6")]
 layout_mode = 1
-offset_left = 11.0
-offset_top = -20.410286
-offset_right = 213.0
-offset_bottom = 148.67944
+offset_left = 37.5
+offset_top = -21.794857
+offset_right = 239.5
+offset_bottom = 147.29488
+mouse_filter = 1
 handler_path = NodePath("../../FoxHandler")
 
 [node name="FoxHandler" type="Node" parent="Fox" unique_id=1325440141]
 script = ExtResource("11_qhgtx")
+data = ExtResource("13_4w45t")
 
 [connection signal="button_down" from="Hare/Button" to="Hare/Button" method="_on_button_down"]
 [connection signal="button_up" from="Hare/Button" to="Hare/Button" method="_on_button_up"]

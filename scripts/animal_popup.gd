@@ -17,6 +17,7 @@ class_name AnimalPopup
 var _handler: AnimalHandlerBase
 
 func _ready() -> void:
+	hide()
 	_handler = get_node_or_null(handler_path) as AnimalHandlerBase
 	if _handler == null:
 		push_warning("AnimalPopup could not find AnimalHandlerBase at path: %s" % str(handler_path))

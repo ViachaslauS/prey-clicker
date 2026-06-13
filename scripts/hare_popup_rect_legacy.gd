@@ -1,2 +1,0 @@
-extends AnimalClickButton
-class_name HareClickButton
