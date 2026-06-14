@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WolfData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/wolf_data.gd" id="1_wolf"]
+
+[resource]
+script = ExtResource("1_wolf")
+display_name = "Wolf"
+dna_type = 3
+save_key_prefix = "wolf"
+passive_gain_time = 0.5
+passive_gain_per_level = 1
+passive_gain_cost_base = 120
+passive_gain_cost_step = 80
+mimic_cost_base = 30
+mimic_cost_step = 90
+click_gain_per_level = 1
+click_upgrade_cost_step = 8
+click_upgrade_max_level = 8
+default_passive_level = 0
+default_mimic_count = 0
+default_click_level = 1
+cross_species_bonus_per_summoned_wolf_per_level = 1
+cross_species_bonus_upgrade_cost_base = 100
+cross_species_bonus_upgrade_cost_step = 120

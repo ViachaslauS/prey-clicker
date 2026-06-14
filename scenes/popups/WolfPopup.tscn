@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://drdvif2t4hgn4"]
+
+[ext_resource type="Texture2D" uid="uid://cd8o1b7dclxuf" path="res://res/ui/Inventory.png" id="1_dbhn2"]
+[ext_resource type="Script" uid="uid://cul65s8bhmmbn" path="res://scenes/popups/wolf_popup.gd" id="1_tpcex"]
+[ext_resource type="LabelSettings" uid="uid://bokpke0pl1xcp" path="res://res/text_base_settings.tres" id="2_au32t"]
+[ext_resource type="FontFile" uid="uid://bc6y2arq85qo5" path="res://res/ui/monogram.ttf" id="3_tpcex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w840l"]
+font = ExtResource("3_tpcex")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmvyg"]
+font = ExtResource("3_tpcex")
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hidyh"]
+line_spacing = 2.0
+font = ExtResource("3_tpcex")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="WolfPopup" type="Control" unique_id=1567256415]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1686.0
+offset_bottom = -794.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpcex")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=800882509]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=2103126368]
+layout_mode = 2
+texture = ExtResource("1_dbhn2")
+region_rect = Rect2(8, 0, 97, 101)
+patch_margin_left = 72
+patch_margin_top = 83
+patch_margin_right = 84
+patch_margin_bottom = 82
+
+[node name="Empty" type="GridContainer" parent="MarginContainer" unique_id=1309185228]
+layout_mode = 2
+columns = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Empty" unique_id=1444272424]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Empty" unique_id=1086295827]
+layout_mode = 2
+columns = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=818380096]
+custom_minimum_size = Vector2(50, 15)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=2004664159]
+layout_mode = 2
+
+[node name="HareDNA" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=1878761382]
+layout_mode = 2
+text = "DNA:"
+label_settings = SubResource("LabelSettings_w840l")
+vertical_alignment = 2
+
+[node name="HareDNA_Count" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=588589984]
+layout_mode = 2
+text = "0123"
+label_settings = SubResource("LabelSettings_mmvyg")
+vertical_alignment = 2
+
+[node name="DnaPerClickLevel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=963662930]
+layout_mode = 2
+text = "Increase DNA 
+per click"
+label_settings = SubResource("LabelSettings_hidyh")
+
+[node name="DnaPerClickButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=2079859674]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="IncreaseMimicCountLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=365135034]
+layout_mode = 2
+text = "Summon wolf"
+label_settings = SubResource("LabelSettings_hidyh")
+
+[node name="HareMimicCountButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=1940163533]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="IncreaseMimicPowerLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=439411112]
+layout_mode = 2
+text = "Donate summoned wolves
+increase passive"
+label_settings = SubResource("LabelSettings_hidyh")
+vertical_alignment = 3
+
+[node name="IncreaseMimicPowerButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=1923805585]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="SendMimicToHaresLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=910959622]
+layout_mode = 2
+text = "Each summon boosts
+hares+foxes"
+label_settings = SubResource("LabelSettings_hidyh")
+vertical_alignment = 3
+
+[node name="SendMimicToHaresButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=649650890]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="Control3" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=1730827142]
+custom_minimum_size = Vector2(50, 5)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/Empty" unique_id=476966106]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="." unique_id=442080544]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 55.0
+offset_bottom = 15.833336
+text = "WOLF"
+label_settings = ExtResource("2_au32t")
+
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/DnaPerClickButton" to="." method="_on_dna_per_click_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/HareMimicCountButton" to="." method="_on_mimic_count_upgrade_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/IncreaseMimicPowerButton" to="." method="_on_increase_mimic_power_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/SendMimicToHaresButton" to="." method="_on_send_mimic_to_hares_button_pressed"]
