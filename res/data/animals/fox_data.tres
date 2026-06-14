@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://c3pcr0qdne7ic"]
+[gd_resource type="Resource" script_class="FoxData" format=3 uid="uid://c3pcr0qdne7ic"]
 
 [ext_resource type="Script" uid="uid://b8k8ipw7o5wx8" path="res://scripts/fox_data.gd" id="1_wmlxr"]
 

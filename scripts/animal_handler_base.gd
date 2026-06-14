@@ -30,8 +30,12 @@ func get_display_name() -> String:
 func get_dna_type() -> SaveManager.DNAType:
 	return data.dna_type
 
+func get_passive_gain_bonus() -> int:
+	return 0
+
 func get_passive_gain_amount() -> int:
-	return get_passive_gain_level() * data.passive_gain_per_level
+	var total_gain: int = get_passive_gain_level() * data.passive_gain_per_level + get_passive_gain_bonus()
+	return max(total_gain, 0)
 
 func get_passive_gain_level() -> int:
 	return int(SaveManager.get_value(_get_key(PASSIVE_GAIN_LEVEL_KEY_SUFFIX), data.default_passive_level))
@@ -64,8 +68,12 @@ func upgrade_mimic_count() -> void:
 func get_current_dna_gain_level_per_click() -> int:
 	return int(SaveManager.get_value(_get_key(CLICK_GAIN_LEVEL_KEY_SUFFIX), data.default_click_level))
 
+func get_click_dna_bonus() -> int:
+	return 0
+
 func get_current_dna_gain_per_click() -> int:
-	return get_current_dna_gain_level_per_click() * data.click_gain_per_level
+	var total_gain: int = get_current_dna_gain_level_per_click() * data.click_gain_per_level + get_click_dna_bonus()
+	return max(total_gain, 0)
 
 func can_upgrade_dna_gain_per_click() -> bool:
 	return get_current_dna_gain_level_per_click() < data.click_upgrade_max_level and SaveManager.get_dna(get_dna_type()) >= get_current_dna_gain_per_click_upgrade_cost()

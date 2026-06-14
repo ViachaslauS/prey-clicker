@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://c25gnrctd17qf"]
+[gd_scene format=4 uid="uid://bn80yo6ytcvlt"]
 
 [ext_resource type="Script" uid="uid://dxyjgohsg2c11" path="res://scripts/main_scene.gd" id="1_pw63i"]
 [ext_resource type="Texture2D" uid="uid://mcuckhjhr3h6" path="res://res/tilesets/grass tileset/grass_tileset.png" id="1_w2twt"]
@@ -15,6 +15,9 @@
 [ext_resource type="SpriteFrames" uid="uid://ckgt2tgpe1c1k" path="res://res/data/animals/fox_sprite_frames.tres" id="12_r2u6p"]
 [ext_resource type="Resource" uid="uid://c3pcr0qdne7ic" path="res://res/data/animals/fox_data.tres" id="13_4w45t"]
 [ext_resource type="PackedScene" uid="uid://bw64a78pb5ru5" path="res://scenes/popups/FoxPopup.tscn" id="13_si52b"]
+[ext_resource type="PackedScene" path="res://scenes/popups/WolfPopup.tscn" id="18_58gk3"]
+[ext_resource type="Script" uid="uid://dsiwxr5jep1gb" path="res://scripts/wolf_handler.gd" id="20_u0fll"]
+[ext_resource type="Resource" path="res://res/data/animals/wolf_data.tres" id="21_6p3nn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw63i"]
 texture = ExtResource("1_w2twt")
@@ -654,6 +657,35 @@ offset_right = 228.0
 offset_bottom = 36.0
 value = 50.0
 
+[node name="Wolf" type="AnimatedSprite2D" parent="." unique_id=2113042648]
+position = Vector2(648, 105)
+sprite_frames = SubResource("SpriteFrames_kkokr")
+animation = &"idle-right"
+autoplay = "idle-right"
+
+[node name="Button" type="Button" parent="Wolf" unique_id=729576125]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+offset_left = -59.0
+offset_top = -31.410286
+offset_right = 72.0
+offset_bottom = 60.17943
+text = "WOLF"
+script = ExtResource("7_18nlu")
+handler_path = NodePath("../WolfHandler")
+popup_path = NodePath("WolfPopup")
+
+[node name="WolfPopup" parent="Wolf/Button" unique_id=2088998109 instance=ExtResource("18_58gk3")]
+layout_mode = 1
+offset_left = 74.0
+offset_top = 22.410278
+offset_right = -57.0
+offset_bottom = -69.179436
+
+[node name="WolfHandler" type="Node" parent="Wolf" unique_id=1595690736]
+script = ExtResource("20_u0fll")
+data = ExtResource("21_6p3nn")
+
 [connection signal="button_down" from="Hare/Button" to="Hare/Button" method="_on_button_down"]
 [connection signal="button_up" from="Hare/Button" to="Hare/Button" method="_on_button_up"]
 [connection signal="mouse_entered" from="Hare/Button" to="Hare/Button" method="_on_mouse_entered"]
@@ -663,3 +695,7 @@ value = 50.0
 [connection signal="button_up" from="Fox/Button" to="Fox/Button" method="_on_button_up"]
 [connection signal="mouse_entered" from="Fox/Button" to="Fox/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Fox/Button" to="Fox/Button" method="_on_mouse_exited"]
+[connection signal="button_down" from="Wolf/Button" to="Wolf/Button" method="_on_button_down"]
+[connection signal="button_up" from="Wolf/Button" to="Wolf/Button" method="_on_button_up"]
+[connection signal="mouse_entered" from="Wolf/Button" to="Wolf/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Wolf/Button" to="Wolf/Button" method="_on_mouse_exited"]
