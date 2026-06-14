@@ -663,7 +663,6 @@ offset_left = -59.0
 offset_top = -31.410286
 offset_right = 72.0
 offset_bottom = 60.17943
-mouse_filter = 1
 text = "WOLF"
 script = ExtResource("7_18nlu")
 handler_path = NodePath("../WolfHandler")

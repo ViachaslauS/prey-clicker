@@ -16,6 +16,7 @@ class_name WolfPopup
 
 func _ready() -> void:
 	_name_label.text = "WOLF"
+	hide()
 
 func _process(_delta: float) -> void:
 	_update_popup()
