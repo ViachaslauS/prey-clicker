@@ -3,15 +3,15 @@ class_name AnimalPopup
 
 @export var handler_path: NodePath = NodePath("../../HareHandler")
 
-@onready var _upgrade_passive_gain_button: Button = $GridContainer/IncreaseMimicPowerButton
-@onready var _upgrade_passive_gain_label: Label = $GridContainer/IncreaseMimicPowerLabel
-@onready var _dna_count_label: Label = $GridContainer/HareDNA_Count
+@onready var _upgrade_passive_gain_button: Button = $Margin/Empty/GridContainer/IncreaseMimicPowerButton
+@onready var _upgrade_passive_gain_label: Label = $Margin/Empty/GridContainer/IncreaseMimicPowerLabel
+@onready var _dna_count_label: Label = $Margin/Empty/GridContainer/HareDNA_Count
 
-@onready var _mimic_count_label: Label = $GridContainer/IncreaseMimicCountLabel
-@onready var _mimic_count_button: Button = $GridContainer/HareMimicCountButton
+@onready var _mimic_count_label: Label = $Margin/Empty/GridContainer/IncreaseMimicCountLabel
+@onready var _mimic_count_button: Button = $Margin/Empty/GridContainer/HareMimicCountButton
 
-@onready var _dna_per_click_level_label: Label = $GridContainer/DnaPerClickLevel
-@onready var _dna_per_click_level_button: Button = $GridContainer/DnaPerClickButton
+@onready var _dna_per_click_level_label: Label = $Margin/Empty/GridContainer/DnaPerClickLevel
+@onready var _dna_per_click_level_button: Button = $Margin/Empty/GridContainer/DnaPerClickButton
 @onready var _name_label: Label = $Name
 
 var _handler: AnimalHandlerBase
@@ -33,9 +33,13 @@ func _process(_delta: float) -> void:
 	_upgrade_passive_gain_button.disabled = _handler.get_mimic_count() == 0 or !_handler.can_upgrade_passive_gain_level()
 	_dna_per_click_level_button.disabled = !_handler.can_upgrade_dna_gain_per_click()
 
-	_dna_per_click_level_label.text = "Increase DNA gain\nper click (%s)" % Helper.big_int_formatter(_handler.get_current_dna_gain_level_per_click())
-	_dna_per_click_level_button.text = Helper.big_int_formatter(_handler.get_current_dna_gain_per_click_upgrade_cost())
+	if _handler.is_dna_per_click_maxed():
+		_dna_per_click_level_button.text = "MAX"
+	else:
+		_dna_per_click_level_button.text = Helper.big_int_formatter(_handler.get_current_dna_gain_per_click_upgrade_cost())
 
+	_dna_per_click_level_label.text = "Increase DNA gain\nper click (%s)" % Helper.big_int_formatter(_handler.get_current_dna_gain_level_per_click())
+	
 	_upgrade_passive_gain_button.text = Helper.big_int_formatter(_handler.get_next_passive_gain_level_cost())
 	_upgrade_passive_gain_label.text = "Increase mimic\npower (%s)" % Helper.big_int_formatter(_handler.get_passive_gain_level())
 

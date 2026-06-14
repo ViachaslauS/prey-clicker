@@ -26,25 +26,118 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1720.0
-offset_bottom = -730.0
+offset_right = -1686.0
+offset_bottom = -794.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tpcex")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=720068336]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2005822912]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 170.0
-offset_bottom = 201.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=720068336]
+layout_mode = 2
 texture = ExtResource("1_dbhn2")
-draw_center = false
 region_rect = Rect2(8, 0, 97, 101)
-patch_margin_left = 85
-patch_margin_top = 90
+patch_margin_left = 72
+patch_margin_top = 83
 patch_margin_right = 84
 patch_margin_bottom = 82
+
+[node name="Empty" type="GridContainer" parent="MarginContainer" unique_id=1597168799]
+layout_mode = 2
+columns = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Empty" unique_id=2143035368]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Empty" unique_id=1566491743]
+layout_mode = 2
+columns = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=1002461725]
+custom_minimum_size = Vector2(50, 15)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=948428597]
+layout_mode = 2
+
+[node name="HareDNA" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=816662862]
+layout_mode = 2
+text = "DNA:"
+label_settings = SubResource("LabelSettings_w840l")
+vertical_alignment = 2
+
+[node name="HareDNA_Count" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=749830812]
+layout_mode = 2
+text = "0123"
+label_settings = SubResource("LabelSettings_mmvyg")
+vertical_alignment = 2
+
+[node name="DnaPerClickLevel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=292562267]
+layout_mode = 2
+text = "Increase DNA 
+per click"
+label_settings = SubResource("LabelSettings_hidyh")
+
+[node name="DnaPerClickButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=1132871021]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="IncreaseMimicCountLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=1896179016]
+layout_mode = 2
+text = "Increase mimic
+power"
+label_settings = SubResource("LabelSettings_hidyh")
+
+[node name="HareMimicCountButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=773444429]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="IncreaseMimicPowerLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=392557027]
+layout_mode = 2
+text = "Increase mimic
+power (%d)"
+label_settings = SubResource("LabelSettings_hidyh")
+vertical_alignment = 3
+
+[node name="IncreaseMimicPowerButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=2123357300]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="SendMimicToHaresLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=1294462334]
+layout_mode = 2
+text = "Send mimic to
+hares (%d)"
+label_settings = SubResource("LabelSettings_hidyh")
+vertical_alignment = 3
+
+[node name="SendMimicToHaresButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=1659037168]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_tpcex")
+text = "156"
+
+[node name="Control3" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=462462364]
+custom_minimum_size = Vector2(50, 5)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/Empty" unique_id=584136654]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
 
 [node name="Name" type="Label" parent="." unique_id=1201703677]
 layout_mode = 0
@@ -54,66 +147,7 @@ offset_bottom = 15.833336
 text = "FOX"
 label_settings = ExtResource("2_au32t")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1566491743]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 18.0
-offset_right = 157.0
-offset_bottom = 140.0
-columns = 2
-
-[node name="HareDNA" type="Label" parent="GridContainer" unique_id=816662862]
-layout_mode = 2
-text = "DNA:"
-label_settings = SubResource("LabelSettings_w840l")
-vertical_alignment = 2
-
-[node name="HareDNA_Count" type="Label" parent="GridContainer" unique_id=749830812]
-layout_mode = 2
-text = "0123"
-label_settings = SubResource("LabelSettings_mmvyg")
-vertical_alignment = 2
-
-[node name="DnaPerClickLevel" type="Label" parent="GridContainer" unique_id=292562267]
-layout_mode = 2
-text = "Increase DNA 
-per click"
-label_settings = SubResource("LabelSettings_hidyh")
-
-[node name="DnaPerClickButton" type="Button" parent="GridContainer" unique_id=1132871021]
-layout_mode = 2
-mouse_filter = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_tpcex")
-text = "156"
-
-[node name="IncreaseMimicCountLabel" type="Label" parent="GridContainer" unique_id=1896179016]
-layout_mode = 2
-text = "Increase mimic
-power"
-label_settings = SubResource("LabelSettings_hidyh")
-
-[node name="HareMimicCountButton" type="Button" parent="GridContainer" unique_id=773444429]
-layout_mode = 2
-mouse_filter = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_tpcex")
-text = "156"
-
-[node name="IncreaseMimicPowerLabel" type="Label" parent="GridContainer" unique_id=392557027]
-layout_mode = 2
-text = "Increase mimic
-power (%d)"
-label_settings = SubResource("LabelSettings_hidyh")
-vertical_alignment = 3
-
-[node name="IncreaseMimicPowerButton" type="Button" parent="GridContainer" unique_id=2123357300]
-layout_mode = 2
-mouse_filter = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_tpcex")
-text = "156"
-
-[connection signal="pressed" from="GridContainer/DnaPerClickButton" to="." method="_on_dna_per_click_button_pressed"]
-[connection signal="pressed" from="GridContainer/HareMimicCountButton" to="." method="_on_mimic_count_upgrade_button_pressed"]
-[connection signal="pressed" from="GridContainer/IncreaseMimicPowerButton" to="." method="_on_increase_mimic_power_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/DnaPerClickButton" to="." method="_on_dna_per_click_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/HareMimicCountButton" to="." method="_on_mimic_count_upgrade_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/IncreaseMimicPowerButton" to="." method="_on_increase_mimic_power_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/SendMimicToHaresButton" to="." method="_on_send_mimic_to_hares_button_pressed"]

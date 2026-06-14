@@ -70,6 +70,9 @@ func get_current_dna_gain_per_click() -> int:
 func can_upgrade_dna_gain_per_click() -> bool:
 	return get_current_dna_gain_level_per_click() < data.click_upgrade_max_level and SaveManager.get_dna(get_dna_type()) >= get_current_dna_gain_per_click_upgrade_cost()
 
+func is_dna_per_click_maxed() -> bool:
+	return get_current_dna_gain_level_per_click() >= data.click_upgrade_max_level
+
 func get_current_dna_gain_per_click_upgrade_cost() -> int:
 	if get_current_dna_gain_level_per_click() >= data.click_upgrade_max_level:
 		return 0
