@@ -65,15 +65,15 @@ layout_mode = 2
 [node name="Control2" type="Control" parent="MarginContainer/Empty/GridContainer" unique_id=2004664159]
 layout_mode = 2
 
-[node name="HareDNA" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=1878761382]
+[node name="WolfDNA" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=1878761382]
 layout_mode = 2
-text = "DNA:"
+text = "Wolf DNA:"
 label_settings = SubResource("LabelSettings_w840l")
 vertical_alignment = 2
 
-[node name="HareDNA_Count" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=588589984]
+[node name="WolfDNA_Count" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=588589984]
 layout_mode = 2
-text = "0123"
+text = "0"
 label_settings = SubResource("LabelSettings_mmvyg")
 vertical_alignment = 2
 
@@ -90,12 +90,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_tpcex")
 text = "156"
 
-[node name="IncreaseMimicCountLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=365135034]
+[node name="SummonWolfLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=365135034]
 layout_mode = 2
 text = "Summon wolf"
 label_settings = SubResource("LabelSettings_hidyh")
 
-[node name="HareMimicCountButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=1940163533]
+[node name="SummonWolfButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=1940163533]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -116,14 +116,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_tpcex")
 text = "156"
 
-[node name="SendMimicToHaresLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=910959622]
+[node name="CrossSpeciesBoostLabel" type="Label" parent="MarginContainer/Empty/GridContainer" unique_id=910959622]
 layout_mode = 2
 text = "Each summon boosts
 hares+foxes"
 label_settings = SubResource("LabelSettings_hidyh")
 vertical_alignment = 3
 
-[node name="SendMimicToHaresButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=649650890]
+[node name="CrossSpeciesBoostButton" type="Button" parent="MarginContainer/Empty/GridContainer" unique_id=649650890]
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -147,6 +147,6 @@ text = "WOLF"
 label_settings = ExtResource("2_au32t")
 
 [connection signal="pressed" from="MarginContainer/Empty/GridContainer/DnaPerClickButton" to="." method="_on_dna_per_click_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Empty/GridContainer/HareMimicCountButton" to="." method="_on_mimic_count_upgrade_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/SummonWolfButton" to="." method="_on_mimic_count_upgrade_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Empty/GridContainer/IncreaseMimicPowerButton" to="." method="_on_increase_mimic_power_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Empty/GridContainer/SendMimicToHaresButton" to="." method="_on_send_mimic_to_hares_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Empty/GridContainer/CrossSpeciesBoostButton" to="." method="_on_send_mimic_to_hares_button_pressed"]
